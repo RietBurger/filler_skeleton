@@ -23,27 +23,9 @@ INC_DIR = -I inc/
 SRCS =	main.c \
 	  	read_file.c \
 		find_place.c \
-		save_piece.c
-		# print.c \
- 		# errors.c \
-		# save_ants.c \
-		# links.c \
-		# find_path.c \
-		# traverse.c \
-		# is_room_valid.c \
-		# path_to_end.c \
-		# fill_start.c \
-		# move_from_to.c \
-		# which_ant_in_room.c \
-		# end.c \
-		# save_room.c \
-		# add_link.c \
-		# add_room.c \
-		# get_start_end.c \
-		# print_arr.c \
-		# get_map.c \
-		# assign_rooms.c \
-		# free.c
+		save_piece.c \
+		free.c
+		
 
 SRC = $(addprefix $(SRC_DIR), $(SRCS))
 

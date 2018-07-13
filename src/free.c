@@ -12,46 +12,18 @@
 
 #include "filler.h"
 
-void	free_links(t_links *l)
+void	free_board(t_board *b)
 {
-	t_links *tmp_l;
+	t_board *tmp_l;
 
-	while (l != NULL)
+	while (b != NULL)
 	{
-		tmp_l = l;
-		l = l->next;
-		free_args(tmp_l->arr);
+		tmp_l = b;
+		b = b->next;
+		free(tmp_l->line);
 		free(tmp_l);
 	}
-	free(l);
-}
-
-void	free_rooms(t_rooms *r)
-{
-	t_rooms	*tmp_r;
-
-	while (r != NULL)
-	{
-		tmp_r = r;
-		free(r->name);
-		r = r->next;
-		free(tmp_r);
-	}
-	free(r);
-}
-
-void	free_ants(t_ants *a)
-{
-	t_ants	*tmp_a;
-
-	while (a->next != NULL)
-	{
-		tmp_a = a;
-		a = a->next;
-		free(tmp_a->name);
-		free(tmp_a);
-	}
-	free(a);
+	free(b);
 }
 
 void	free_input(t_input *i)
@@ -68,10 +40,8 @@ void	free_input(t_input *i)
 	free(i);
 }
 
-void	free_all(t_links *l, t_rooms *r, t_ants *a, t_input *i)
+void	free_all(t_board *b, t_input *i)
 {
-	free_links(l);
-	free_rooms(r);
-	free_ants(a);
+	free_board(b);
 	free_input(i);
 }

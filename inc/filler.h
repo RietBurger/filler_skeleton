@@ -29,39 +29,24 @@ typedef struct			s_piece
 	int					pieceY;
 	int					cnrCoord;
 	int					valid;
-// 	char				*last;
-// 	struct s_rooms		*next;
 }						t_piece;
 
 typedef struct			s_board
 {
 	char				*line;
-	// char				**arr;
 	int					lineNr;
 	struct s_board		*next;
 }						t_board;
-
-// typedef struct			s_ants
-// {
-// 	char				*name;
-// 	char				*room;
-// 	char				*last;
-// 	struct s_ants		*next;
-// }						t_ants;
 
 typedef struct			s_g
 {
 	t_input				*data;
 	t_piece				*piece;
 	t_board				*board;
-	// t_ants				*ants;
 	char				*gnl;
 	int					playernr;
 	int					Bwidth;
 	int					Bheight;
-	
-	// char				*start_room;
-	// char				*end_room;
 }						t_g;
 
 t_input					*read_file(t_g *all);
@@ -70,6 +55,8 @@ void					error(void);
 void					save_piece(t_input *node, t_g *all);
 t_board					*save_board(t_input *node, t_g *all);
 
-// void	free_all(t_links *l, t_rooms *r, t_ants *a, t_input *i)
+void	free_all(t_board *b, t_input *i);
+void	free_board(t_board *b);
+void	free_input(t_input *i);
 
 #endif
