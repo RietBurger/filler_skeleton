@@ -2,8 +2,8 @@
 
 t_input			*read_file(t_g *all)
 {
-	t_input		*head;
-	t_input		*node;
+	t_input		*head; // head is to be kept and returned to struct t_g all so that we can access the list at all times
+	t_input		*node; // this will be the actual nodes 
 
 	head = NULL;
 	int i;
@@ -16,16 +16,14 @@ t_input			*read_file(t_g *all)
 			head = (t_input *)ft_memalloc(sizeof(t_input));
 			node = head;
 		}
-		node->str = all->gnl;
-		node->nodenr = i;
-		node->next = (t_input *)ft_memalloc(sizeof(t_input));
+		node->str = all->gnl; //read the line into str in t_input node
+		node->nodenr = i; // number the node (for future use)
+		node->next = (t_input *)ft_memalloc(sizeof(t_input)); //allocate memory for the next node
 		if (node->str == NULL || (ft_strcmp(node->str, "\0") == 0))
-			// return(0);
 			error();
-		// ft_putendl(node->str);
-		node = node->next;
+		node = node->next; //move to next node
 		i++;
 	}
-	node->next = NULL;
-	return (head);
+	node->next = NULL; //end list
+	return (head); //return the head
 }
