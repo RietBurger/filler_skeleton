@@ -13,6 +13,7 @@ How to use:
     7) when creating new files, insert file name into `Makefile`
 
 Current output:
+
     1) Displays board width and height saved into global struct `t_g`
     2) Displays piece size marked as pieceY and pieceX in struct `t_piece`
     3) Displays all information saved in list `t_board`, one node at a time.
